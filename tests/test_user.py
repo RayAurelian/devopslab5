@@ -26,7 +26,7 @@ def test_get_existed_user():
 
 def test_get_unexisted_user():
     '''Получение несуществующего пользователя'''
-    response = client.get("/api/v1/user", params={'email': users[0]['email']})
+    response = client.get("/api/v1/user", params={'email': 'notexists@mail.com'})
     assert response.status_code == 404
     assert response.json() == {"detail":"User not found"}
     pass
